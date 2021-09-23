@@ -1,21 +1,16 @@
 /* ---------- root variables ---------- */
 :root {
-  --green: rgb(38, 76, 89);
-   --green-opacity: rgba(38, 76, 89, 0.2);
-  --light-green: rgb(172, 198, 201);
-  --light-grey: #f1f1f4;
-  --text-color-light: #f1f1f1;
-  --text-color-dark: #333;
-  --white: #fff;
-  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --text-color-out-of-stock: rgb(89, 38, 38);
-  --text-color-in-stock: rgb(172, 198, 201);
+  --dark: #29222A;
+  --lilla: #4d2651;
+  --green: #c4e7d4;
+  --white: #ffffff; 
+  --trans: rgba(255, 255, 255, 0.3);
 }
 
 /* ---------- general styling ---------- */
 html {
-  color: var(--text-color-dark);
-  font-family: poppins;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -23,19 +18,31 @@ html {
 
 body {
   margin: 0;
+}
 
+.baggrunds-billede {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: -9999;
+}
+
+
+
+header {
+  background-image: url(../img/baggrund.jpg);
+  background-size: cover;
 }
 
 h1 {
-  font-size: 2em;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-size: 20pt;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: 1.5em;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 h3 {
@@ -54,18 +61,19 @@ img{
   background-color: var(--green);
   color: var(--text-color-light);
   padding: 13.5px;
-  text-transform: uppercase;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
 }
 
 .topbar h2 {
   margin: 0;
-  font-weight: 400;
+  font-weight: 800;
+  font-size: 18pt;
+  color: var(--green);
 }
+
 
 .topbar a {
   text-decoration: none;
@@ -84,24 +92,21 @@ img{
 
 /* ---------- nav styling ---------- */
 nav {
-  background-color: var(--green);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  background-image: url(../img/baggrund.jpg);
+  background-size: cover;
+  background-position: bottom;
   z-index: 9999;
 }
 
 /* Style the links inside the navigation bar */
 nav a {
   display: inline-block;
-  color: var(--text-color-light);
   text-align: center;
-  padding: 1.2em 1.3em;
-  text-decoration: none;
-  font-size: 1em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  padding: 0.5em 2.5em 0.3em;
 }
 
 /* Change the color of links on hover */
@@ -154,6 +159,71 @@ nav a.active {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+/* -------------------------------------------------------- Index card styling ----------------------------------------*/
+
+.index-cards {
+  height: 107;
+  width: 153;
+  background-color: var(--trans);
+}
+
+/* --------------------- hexagon --------------------*/
+.hexagon {
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
+  cursor: pointer;
+}
+
+.hexagon-in1 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.hexagon-in2 {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  visibility: visible;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+
+.hexagon1 .hexagon-in2 {
+  background-size: 60%;
+}
+
+.hexagon2 {
+  width: 200px;
+  height: 400px;
+  margin: -80px 0 0 20px;
+}
+
+.hexagon2 .hexagon-in2 {
+  background-size: 120%;
+  background-position: 55%;
+}
+
+.index-img {
+  
 }
 
 /* ---------- grid container styling ---------- */
@@ -237,7 +307,6 @@ form button{
   color: var(--text-color-light);
   background-color: var(--green);
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   padding: .5em 1em;
   font-size: .8em;
 }
