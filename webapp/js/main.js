@@ -26,15 +26,35 @@ function appendPods(pods) {
         <div class="hexagon hexagon2">
             <div class="hexagon-in1">
                 <div class="hexagon-in2">
-                    <img class="index-img" src="${pod.acf.img}">
+                <img class="index-img" src="${pod.acf.img}">
                 </div>
             </div>
         </div>
-
+        <div class="index-card-text">
         <h2>${pod.title.rendered}</h2>
+        <h3>${pod.acf.undertitel}</h3>
         <p class="genre" >${pod.acf.genre}</p>
+        <img class="stars" src="${getStars(pod)}">
+        </div>
         </article>
         `;
     }
     document.querySelector("#suggested").innerHTML = html;
 }
+
+function getStars(pod) {
+    let star = "";
+    if (pod.acf.rating["2"]) {
+        star = "img/2star.png";
+    } if (pod.acf.rating["3"]); {
+        star = "img/3star.png";
+    } if (pod.acf.rating["4"]) {
+        star = "img/4star.png";
+    } if (pod.acf.rating["5"]) {
+        star = "img/5star.png";
+    } else {
+        star = "img/1star.png";
+    }
+    return star;
+}
+
