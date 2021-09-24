@@ -1,11 +1,17 @@
+::placeholder {
+  color: var(--white);
+}
+
 /* ---------- root variables ---------- */
 :root {
   --dark: #29222A;
   --lilla: #4d2651;
   --green: #c4e7d4;
-  --white: #ffffff; 
+  --white: #ffffff;
+  --gray: #696269;
   --trans: rgba(255, 255, 255, 0.3);
   --transtext: rgba(255, 255, 255, 0.5);
+  --ingen: rgba(255, 255, 255, 0.0);
 }
 
 /* ---------- general styling ---------- */
@@ -18,7 +24,8 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: auto;
+  max-width: 375px;
 }
 
 .baggrunds-billede {
@@ -37,20 +44,28 @@ header {
 }
 
 h1 {
-  font-size: 20pt;
+  font-size: 20px;
   font-weight: 800;
+  text-align: center;
+}
+
+.left {
   text-align: left;
+  margin-top: 0px;
 }
 
 h2 {
-  font-size: 14pt;
+  font-size: 13pt;
   font-weight: 600;
+  line-height: 16pt;
+  
 }
 
 h3 {
-  font-size: 12pt;
+  font-size: 10pt;
   font-weight:200;
   line-height: 12pt;
+  padding: 5px 0;
 }
 
 img{
@@ -58,7 +73,30 @@ img{
   height: auto;
 }
 
-/* ---------- topbar styling ---------- */
+p {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+a {
+  color: var(--white);
+}
+
+input {
+  margin: 1.5em auto;
+  width: 100%;
+  max-width: 350px;
+  height: 44px;
+  padding: 1em;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--trans);
+  color: rgb(255, 255, 255);
+}
+
+/* --------------------------------------------- topbar styling ---------- */
 .topbar {
   background-color: var(--green);
   color: var(--text-color-light);
@@ -72,7 +110,7 @@ img{
 .topbar h2 {
   margin: 0;
   font-weight: 800;
-  font-size: 18pt;
+  font-size: 18px;
   color: var(--green);
 }
 
@@ -90,6 +128,18 @@ img{
 
 .topbar a.right {
   right: 20px;
+}
+
+.tilbage-knap {
+  height: 34px;
+  width: 34px;
+  position: fixed;
+  left: 1.3em;
+  top: 8px;
+  background-color: #c4e7d400;
+  background-image: url(../img/tilbage.png);
+  background-position: center;
+  border: none;
 }
 
 /* ---------- nav styling ---------- */
@@ -123,25 +173,21 @@ nav a.active {
   color: var(--green);
 }
 
-/* ---------- page styling ---------- */
+/* -------------------------------------------------------------------- page styling ---------- */
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
-  padding: 62px 1.3em 52px 1.3em;
+  padding: 60px 1.3em 50px 1.3em;
   
 }
 
-/* ---------- logo styling ---------- */
-.logo {
-  margin: 2em auto;
-  width: 100%;
-  max-width: 300px;
-}
 
-/* ---------- animations ---------- */
+
+
+/* ------------------------------------------------------ sideskift animations ---------- */
 /* fade in */
 @keyframes fadeIn {
   from {
@@ -153,16 +199,70 @@ nav a.active {
   }
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+/* --------------------------------------- login or create siden -----------------------------------*/
 
-  100% {
-    transform: rotate(360deg);
-  }
+.forside-knapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin: 130px 0;
+  
 }
 
+.forside-knapper button {
+  height: 62px;
+  width: 285px;
+  background-color: var(--trans);
+  border-radius: 3px;
+  border: none;
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  box-shadow: none;
+}
+
+.fg-icon {
+  height: 55px;
+  width: 119px;
+  margin: 15px 0;
+}
+
+.fg-icon2 {
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+
+/*--------------------------------------------------------- login siden -----------------------------------------------*/
+
+.loginOrAnuller {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  gap: 15px;
+}
+
+.anuller-knap {
+  height: 30px;
+  width: 76px;
+  background-color: var(--ingen);
+  border: none;
+  font-size: 14px;
+  color: var(--transtext);
+}
+
+.login-knap {
+  height: 30px;
+  width: 76px;
+  background-color: var(--green);
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  color: var(--gray);
+}
 
 /* -------------------------------------------------------- Index card styling ----------------------------------------*/
 
@@ -170,14 +270,14 @@ nav a.active {
 
 .index-cards {
   height: 107px;
-  width: 150px;
+  width: 160px;
 }
 
 .index-card-text {
   display: block;
-  margin: -180px 0 0 60px;
+  margin: -142px 0 0 55px;
   padding: 0;
-  width: 80px;
+  width: 98px;
   height: 107px;
   text-align: left;
 
@@ -188,15 +288,15 @@ nav a.active {
 }
 
 .genre {
-  font-size: 9pt;
-  padding: 15px 0 0 0;
-  color: var(--trans);
+  font-size: 10px;
+  color: var(--transtext);
+  margin-top: -8px;
 }
 
 .stars {
   position: relative;
-  width: 110%;
-  bottom: 15px;
+  width: 90%;
+  bottom: 12px;
 }
 
 /* --------------------- hexagon --------------------*/
@@ -224,9 +324,9 @@ nav a.active {
 .hexagon-in2 {
   width: 100%;
   height: 100%;
-  background-color: #c4e7d4;
   background-repeat: no-repeat;
   background-position: 50%;
+  background-size: 175%;
   visibility: visible;
   -webkit-transform: rotate(-60deg);
   -moz-transform: rotate(-60deg);
@@ -237,50 +337,28 @@ nav a.active {
 
 
 .hexagon2 {
-  width: 102px; /* bestemmer størrelsen på hexagon */
-  height: 204px; /* bestemmer størrelsen på hexagon (skal være dobbelt så stor, ellers ødelægges form)*/
-  margin: -50px 0 0 -50px;
+  width: 80px; /* bestemmer størrelsen på hexagon */
+  height: 160px; /* bestemmer størrelsen på hexagon (skal være dobbelt så stor, ellers ødelægges form)*/
+  margin: -26.6px 0 0 -30px; /* placering i kassen */
 }
-
-.hexagon2 .hexagon-in2 {
-  background-size: 50px;
-  background-position: 100px;
-}
-
-.index-img {
-  width: 100%;
-  height: 100%;
-}
-
 
 
 /* ---------- grid container styling ---------- */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.4em;
+  grid-gap: 0.8em;
   align-items: center;
 }
 
-@media (min-width: 600px) {
-  .grid-container {
-     grid-template-columns: 1fr 1fr;
-  }
-}
 
-@media (min-width: 992px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 
 .grid-container>article {
   text-align: center;
-  padding: 1em 1em;
   background-color: var(--trans);
   border-radius: 3px;
   height: 107px;
-  width: 150px;
+  width: 160px;
   overflow: hidden;
 }
 
@@ -314,7 +392,7 @@ form {
   margin: auto;
 }
 
-form button{
+/* form button{
   padding: 12px 15px;
   font-size: 1em;
   width: 100%;
@@ -332,18 +410,9 @@ form button{
   letter-spacing: 0.05em;
   padding: .5em 1em;
   font-size: .8em;
-}
+} */
 
-input {
-  margin: 1em auto;
-  width: 100%;
-  max-width: 350px;
-  padding: 1em;
-  box-sizing: border-box;
-  display: block;
-  background: var(--white);
-  border: 5px solid var(--light-green);
-}
+
 
 /* ---------- loader styling ---------- */
 #loader {
@@ -419,7 +488,7 @@ input {
 
 /* On mouse-over, add a grey background color */
 .checkmark-container:hover input ~ .checkmark {
-  background-color: var(--text-color-light);
+  background-color: var(--green);
 }
 
 /* When the checkbox is checked, add a blue background */
@@ -454,7 +523,7 @@ input {
 
 /* ---------- custom select styling ---------- */
 select{
-  background-color: var(--light-green);
+  background-color: var(--green);
   border: none;
   color: var(--green);
   padding: 1em;

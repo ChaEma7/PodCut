@@ -1,8 +1,38 @@
-// importerer router til vores main
-import "./router.js";
 console.log("main.js is running!");
 
+// JsonBin
+const _baseUrl = "https://api.jsonbin.io/b/614e36c89548541c29b7e601/2";
+const _headers = {
+  "X-Master-Key": "$2b$10$c.zHVc781HjpYS8Ckd5iX.EAPZmqTRlQJkyVCCDfP4.z45dyvcv.e",
+  "Content-Type": "application/json"
+};
+
+
+
 let _pods = [];
+
+// Login kode
+window.login = () => {
+    const mail = document.querySelector("#login-mail").value;
+    const password =document.querySelector("#login-password").value;
+    console.log(mail, password);
+
+    if(mail === "podcut@mail.com" && password === "podcut"){
+        console.log("Approved");
+        localStorage.setItem("userIsApproved", true);
+        navigateTo("#/");
+    }
+    else {
+        console.log("Not approved");
+        document.querySelector("#notApproved").innerHTML ="Forkert E-mail eller kode. <br> Prøv igen eller opret en bruger";
+    }
+    window.logout = () => {
+        localStorage.setItem("userIsApproved", false);
+        navigateTo("#/login");
+    }
+}
+
+
 
 async function fetchPods() {
     const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed";
@@ -25,8 +55,8 @@ function appendPods(pods) {
         
         <div class="hexagon hexagon2">
             <div class="hexagon-in1">
-                <div class="hexagon-in2">
-                <img class="index-img" src="${pod.acf.img}">
+                <div class="hexagon-in2" style="background-image: url(${pod.acf.img})">
+                
                 </div>
             </div>
         </div>

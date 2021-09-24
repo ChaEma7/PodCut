@@ -9,6 +9,7 @@ const routes = {
     "#/search": "search",
     "#/favorites": "favorites",
     "#/loginorcreate": "loginorcreate",
+    "#/login": "login",
     "#/create": "create",
     "#/choose-interests": "choose-interests",
     "#/choose-streaming": "choose-streaming",
@@ -83,3 +84,4 @@ function initRouter() {
 
 
 initRouter();
+

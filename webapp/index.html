@@ -1,22 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
 
 <head>
   <meta charset="utf-8">
-  <title>SINGLE PAGE WEB APP TEMPLATE</title>
+  <title>PodCut</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Get started with HTML, CSS and JavaScript">
-  <meta name="author" content="Rasmus Cederdorff">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">" rel="stylesheet">
+  <meta name="description" content="Podcast webapp">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 </head>
 
-<body onhashchange="pageChange()">
+<body>
   <!-- tabbar navigation -->
   <nav>
     <a class="nav-link" href="#/"><img src="img/icons8-home-33.png" alt="home icon"></a>
@@ -30,9 +27,10 @@
   <!-- home page -->
   <section id="home" class="page">
     <header class="topbar">
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/loginorcreate')"></button>
       <h2>PodCut</h2>
     </header>
-    <h1>Foreslået til dig</h1>
+    <h1 class="left">Foreslået til dig</h1>
     <div id="suggested" class="grid-container"></div>
   </section>
 
@@ -54,23 +52,35 @@
   <!-- log ind eller opret page -->
   <section id="loginorcreate" class="page">
     <header class="topbar">
-      <h2>Log ind eller opret dig</h2>
+      <h2>PodCut</h2>
     </header>
-    <button type="button" onclick="login()">Opret bruger</button><br>
-    <button type="button" onclick="login()">Log ind</button>
+    <div class="forside-knapper">
+      <img class="fg-icon" src="img/faceGoog.png" alt="facebook og google icon">
+      <button onclick="navigateTo('#/login')" type="button">Log ind</button>
+      <button onclick="navigateTo('#/create')" type="button">Opret bruger</button><br>
+    </div>
   </section>
+
 
   <!-- login page -->
   <section id="login" class="page">
     <header class="topbar">
-      <h2>Login</h2>
+      <h2>Podcut</h2>
     </header>
-    <p>Log ind</p>
+    <h1>Log Ind</h1>
+    <br>
+    <p>Log ind med:</p>
+    <img class="fg-icon fg-icon2" src="img/faceGoog.png" alt="facebook og google icon">
     <form>
-      <input id="login-mail" type="email" placeholder="Indtast email">
-      <input id="login-password" type="password" placeholder="Password">
-      <button type="button" onclick="login()">Log ind</button>
+      <input id="login-mail" type="email" placeholder="E-mail:">
+      <input id="login-password" type="password" placeholder="Kode:">
+      <p>Opret en bruger <a onclick="navigateTo('#/create')" style="text-decoration: underline;">her</a></p>
+      <div class="loginOrAnuller">
+        <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Anuller</button>
+        <button class="login-knap" type="button" onclick="login()">Log ind</button>
+      </div>
     </form>
+    <p id="notApproved"></p>
   </section>
 
   <!-- opret page -->
@@ -124,7 +134,8 @@
 
 
   <!-- main js file -->
-  <script src="js/main.js" type="module"></script>
+  <script src="js/router.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
