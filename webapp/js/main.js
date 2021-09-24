@@ -42,15 +42,17 @@ function appendPods(pods) {
     document.querySelector("#suggested").innerHTML = html;
 }
 
+// Fortæller hvilket billede der skal bruges alt efter rating
+
 function getStars(pod) {
     let star = "";
-    if (pod.acf.rating["2"]) {
+    if (pod.acf.rating === "2") {
         star = "img/2star.png";
-    } if (pod.acf.rating["3"]); {
+    } else if (pod.acf.rating === "3") {
         star = "img/3star.png";
-    } if (pod.acf.rating["4"]) {
+    } else if (pod.acf.rating === "4") {
         star = "img/4star.png";
-    } if (pod.acf.rating["5"]) {
+    } else if (pod.acf.rating === "5") {
         star = "img/5star.png";
     } else {
         star = "img/1star.png";

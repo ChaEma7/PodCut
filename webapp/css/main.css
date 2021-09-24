@@ -226,7 +226,7 @@ nav a.active {
   height: 100%;
   background-color: #c4e7d4;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50%;
   visibility: visible;
   -webkit-transform: rotate(-60deg);
   -moz-transform: rotate(-60deg);
