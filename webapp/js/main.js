@@ -1,15 +1,14 @@
 console.log("main.js is running!");
 
 // JsonBin
-const _baseUrl = "https://api.jsonbin.io/b/614e36c89548541c29b7e601/2";
+const _baseUrl = "https://api.jsonbin.io/v3/b/614e36c89548541c29b7e601";
 const _headers = {
-  "X-Master-Key": "$2b$10$c.zHVc781HjpYS8Ckd5iX.EAPZmqTRlQJkyVCCDfP4.z45dyvcv.e",
+  "X-Master-Key": "$2b$10$dRxVlihycZfRirMB6dkUju/ffo6QESpspttm8Xyzu454ddqm1hVfu",
   "Content-Type": "application/json"
 };
 
-
-
 let _pods = [];
+let _users = [];
 
 // Login kode
 window.login = () => {
@@ -24,7 +23,7 @@ window.login = () => {
     }
     else {
         console.log("Not approved");
-        document.querySelector("#notApproved").innerHTML ="Forkert E-mail eller kode. <br> Prøv igen eller opret en bruger";
+        document.querySelector("#notApproved").innerHTML ="Forkert e-mail eller kode. <br> Prøv igen eller opret en bruger";
     }
     window.logout = () => {
         localStorage.setItem("userIsApproved", false);
@@ -32,10 +31,86 @@ window.login = () => {
     }
 }
 
+// ========== OPRET PROFIL ==========
+
+//Fetchs person data from jsonbin
+async function loadUsers() {
+ const url = _baseUrl + "/latest"; // make sure to get the latest version
+ const response = await fetch(url, { headers: _headers });
+ const data = await response.json();
+ console.log(data);
+ _users = data.record;
+ console.log(_users);
+ appendUsers(_users);
+ 
+}
+loadUsers();
+
+function appendUsers() {
+    let htmlTemplate = "";
+    for (let user of _users){
+      htmlTemplate += /*html*/`
+      <article>
+      <h2>${user.name} ${user.surname}</h2>
+      <p>${user.mail}</p>
+      
+      </article>`
+    }
+    document.querySelector("#profile").innerHTML = htmlTemplate;
+    
+  }
+
+async function add() {
+    console.log("Add button clicked");
+  
+    let inputName = document.getElementById('inputName');
+    let inputSurName = document.getElementById('inputSurName');
+    let inputMail = document.getElementById('inputMail');
+    let inputPassword = document.getElementById('inputPassword');
+    
+    let newUser = {
+      name: inputName.value,
+      surname: inputSurName.value,
+      mail: inputMail.value,
+      password: inputPassword.value
+      
+    };
+    _users.push(newUser);
+    await updateJSONBIN(_users);
+  
+  //reset af felter
+    inputName.value = "";
+    inputSurName.value = "";
+    inputMail.value = "";
+    inputPassword.value ="";
+    
+  
+  appendUsers(_users);
+    navigateTo("#/choose-interests");
+  }
+
+/**
+ * Updates the data source on jsonbin with a given users arrays
+ * @param {Array} users 
+ */
+ async function updateJSONBIN(users) {
+    // put users array to jsonbin
+    const response = await fetch(_baseUrl, {
+      method: "PUT",
+      headers: _headers,
+      body: JSON.stringify(users)
+    });
+  
+    const result = await response.json();
+    console.log(result);
+  
+    appendUsers(result.record);
+  }
 
 
+// fetch podcasts
 async function fetchPods() {
-    const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed";
+    const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&per_page=4";
 
     const response = await fetch(url);
     const data = await response.json();
@@ -46,6 +121,7 @@ async function fetchPods() {
 
 fetchPods();
 
+// show podcast details
 function appendPods(pods) {
     let html = "";
 

@@ -86,15 +86,37 @@
   <!-- opret page -->
   <section id="create" class="page">
     <header class="topbar">
-      <h2>Opret dig</h2>
+      <img class="proceslinje" src="img/proces-1.png" alt="proceslinje">
     </header>
+    <h1>Opret en bruger</h1>
+    <br>
+    <p class="left">Udfyld</p>
+    <section>
+      <form>
+        <input id="inputName" type="text" placeholder="Fornavn">
+        <input id="inputSurName" type="text" placeholder="Efternavn">
+        <input id="inputMail" type="text" placeholder="Mail">
+        <input id="inputPassword" type="password" placeholder="Kodeord">
+        <input id="inputPasswordRepeat" type="password" placeholder="Gentag kodeord">
+        <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Anuller</button>
+        <button class="login-knap" type="button" name="button" onclick="add()">Opret</button>
+      </form>
+    </section>
   </section>
 
   <!-- vælg interesser page -->
   <section id="choose-interests" class="page">
     <header class="topbar">
-
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/create')"></button>
+      <img class="proceslinje" src="img/proces-2.png" alt="proceslinje">
     </header>
+    <h1>Vælg dine interesser</h1>
+    <br>
+    <p class="left">Vælg minimum 5 <strong>(Kan altid ændres)</strong></p>
+    <div id="flex-buttons">
+    <input type="checkbox" class="interest-button" value="Krimi"></input>
+    <input type="checkbox" class="interest-button" value="Design"></input>
+  </div>
   </section>
 
   <!-- vælg streaming page -->
