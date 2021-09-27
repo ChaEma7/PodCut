@@ -10,7 +10,8 @@ const _headers = {
 let _pods = [];
 let _users = [];
 
-// Login kode
+// =============== Login kode ==================
+// Skrevet af Line
 window.login = () => {
     const mail = document.querySelector("#login-mail").value;
     const password =document.querySelector("#login-password").value;
@@ -32,6 +33,7 @@ window.login = () => {
 }
 
 // ========== OPRET PROFIL ==========
+// Skrevet af Line
 
 //Fetchs person data from jsonbin
 async function loadUsers() {
@@ -107,8 +109,30 @@ async function add() {
     appendUsers(result.record);
   }
 
+// ======================= Search =====================================
+// skrevet af Chalotte
 
-// fetch podcasts
+function search(value) {
+  let searchQuery = value.toLowerCase();
+  let filteredPods = [];
+  for (let pod of _pods) {
+      let title = pod.title.rendered.toLowerCase();
+      if (title.includes(searchQuery)) {
+          filteredPods.push(pod);
+      }
+      let genre = pod.acf.genre.toLowerCase();
+      if (genre.includes(searchQuery)) {
+        filteredPods.push(pod);
+      }
+
+  }
+  appendPods(filteredPods);
+}
+
+
+// ======================= fetch podcasts =============================
+// Skrevet af Chalotte
+
 async function fetchPods() {
     const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&per_page=4";
 
@@ -166,3 +190,26 @@ function getStars(pod) {
     return star;
 }
 
+// ========================= Categories ======================================
+
+async function fetchCategories() {
+  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/categories?_embed";
+
+  const response = await fetch(url);
+  const data = await response.json();
+  appendCategories(data);
+
+}
+
+fetchCategories();
+
+function appendCategories(categories) {
+  let htmlTemplate = "";
+
+  for (let category of categories) {
+      htmlTemplate += /*html*/ `
+      <option value="${category.id}">${category.name}</option>`;
+  }
+  console.log(htmlTemplate);
+  document.querySelector('#select-category').innerHTML += htmlTemplate;
+}

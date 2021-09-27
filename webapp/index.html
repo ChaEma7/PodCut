@@ -30,6 +30,9 @@
       <button type="button" class="tilbage-knap" onclick="navigateTo('#/loginorcreate')"></button>
       <h2>PodCut</h2>
     </header>
+    <!-- Søg -->
+    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search('')">
+    <!-- indhold -->
     <h1 class="left">Foreslået til dig</h1>
     <div id="suggested" class="grid-container"></div>
   </section>
@@ -90,7 +93,7 @@
     </header>
     <h1>Opret en bruger</h1>
     <br>
-    <p class="left">Udfyld</p>
+    <p class="lilleleft">Udfyld</p>
     <section>
       <form>
         <input id="inputName" type="text" placeholder="Fornavn">

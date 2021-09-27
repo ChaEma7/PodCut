@@ -2,6 +2,8 @@
   color: var(--white);
 }
 
+
+
 /* ---------- root variables ---------- */
 :root {
   --dark: #29222A;
@@ -14,7 +16,7 @@
   --ingen: rgba(255, 255, 255, 0.0);
 }
 
-/* ---------- general styling ---------- */
+/* ===================================== general styling ===================================== */
 html {
   color: var(--white);
   font-family: 'Poppins', sans-serif;
@@ -51,24 +53,29 @@ h1 {
 
 .left {
   text-align: left;
-  margin-top: 0px;
+  margin: 30px 0 0px 0;
+}
+
+.lilleleft {
+  text-align: left;
+  margin: 0 0 -15px 0;
 }
 
 h2 {
   font-size: 13pt;
   font-weight: 600;
   line-height: 16pt;
-  
+
 }
 
 h3 {
   font-size: 10pt;
-  font-weight:200;
+  font-weight: 200;
   line-height: 12pt;
   padding: 5px 0;
 }
 
-img{
+img {
   width: 100%;
   height: auto;
 }
@@ -77,11 +84,13 @@ p {
   font-size: 14px;
   font-weight: 200;
 }
+
 strong {
   color: var(--transtext);
   font-size: 14px;
   font-weight: 200;
 }
+
 a {
   color: var(--white);
 }
@@ -101,7 +110,7 @@ input {
   color: rgb(255, 255, 255);
 }
 
-/* --------------------------------------------- topbar styling ---------- */
+/* ===================================== topbar styling ===================================== */
 .topbar {
   background-color: var(--green);
   color: var(--text-color-light);
@@ -152,7 +161,7 @@ input {
   height: 20px;
 }
 
-/* ---------- nav styling ---------- */
+/* ===================================== nav styling ===================================== */
 nav {
   position: fixed;
   bottom: 0;
@@ -183,7 +192,7 @@ nav a.active {
   color: var(--green);
 }
 
-/* -------------------------------------------------------------------- page styling ---------- */
+/* ======================================= page styling ======================================= */
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
@@ -191,13 +200,13 @@ nav a.active {
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 60px 1.3em 50px 1.3em;
-  
+
 }
 
 
 
 
-/* ------------------------------------------------------ sideskift animations ---------- */
+/* ------------- sideskift animations ---------- */
 /* fade in */
 @keyframes fadeIn {
   from {
@@ -209,7 +218,7 @@ nav a.active {
   }
 }
 
-/* --------------------------------------- login or create siden -----------------------------------*/
+/* ===================================== login or create siden =====================================*/
 
 .forside-knapper {
   display: flex;
@@ -218,7 +227,7 @@ nav a.active {
   justify-content: center;
   align-self: center;
   margin: 130px 0;
-  
+
 }
 
 .forside-knapper button {
@@ -246,7 +255,7 @@ nav a.active {
 }
 
 
-/*--------------------------------------------------------- login siden -----------------------------------------------*/
+/* ============================================ Log ind =============================================*/
 
 .loginOrAnuller {
   display: flex;
@@ -274,9 +283,37 @@ nav a.active {
   color: var(--gray);
 }
 
-/* -------------------------------------------------------- Index card styling ----------------------------------------*/
+/* ============================================= Index =============================================*/
 
+/*------------------ Search ----------------*/
 
+input#search {
+  background-image: url(../img/icons8-search-33.png);
+  background-size: 33px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 5px;
+  text-indent: 25px;
+  transition: 0.3s;
+  margin-top: 0px;
+}
+
+input#search:focus {
+  background-image: none;
+  text-indent: 0px;
+}
+
+input#search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  background-image: url(../img/luk.png);
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+/* -------------  card styling -------------*/
 
 .index-cards {
   height: 107px;
@@ -347,9 +384,12 @@ nav a.active {
 
 
 .hexagon2 {
-  width: 80px; /* bestemmer størrelsen på hexagon */
-  height: 160px; /* bestemmer størrelsen på hexagon (skal være dobbelt så stor, ellers ødelægges form)*/
-  margin: -26.6px 0 0 -30px; /* placering i kassen */
+  width: 80px;
+  /* bestemmer størrelsen på hexagon */
+  height: 160px;
+  /* bestemmer størrelsen på hexagon (skal være dobbelt så stor, ellers ødelægges form)*/
+  margin: -26.6px 0 0 -30px;
+  /* placering i kassen */
 }
 
 
@@ -387,12 +427,12 @@ nav a.active {
 }
 
 @media (min-width: 600px) {
-  .tools-grid{
+  .tools-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-.tools-grid label{
+.tools-grid label {
   max-width: 350px;
 }
 
@@ -497,12 +537,12 @@ form {
 }
 
 /* On mouse-over, add a grey background color */
-.checkmark-container:hover input ~ .checkmark {
+.checkmark-container:hover input~.checkmark {
   background-color: var(--green);
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkmark-container input:checked ~ .checkmark {
+.checkmark-container input:checked~.checkmark {
   background-color: var(--green);
 }
 
@@ -514,7 +554,7 @@ form {
 }
 
 /* Show the checkmark when checked */
-.checkmark-container input:checked ~ .checkmark:after {
+.checkmark-container input:checked~.checkmark:after {
   display: block;
 }
 
@@ -532,7 +572,7 @@ form {
 }
 
 /* ---------- custom select styling ---------- */
-select{
+select {
   background-color: var(--green);
   border: none;
   color: var(--green);
@@ -543,7 +583,7 @@ select{
 }
 
 /* ---------- custom select styling ---------- */
-#detail-view-container{
+#detail-view-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1em;
@@ -565,25 +605,26 @@ select{
 input.interest-button {
   visibility: hidden;
 }
+
 input.interest-button::before {
   content: attr(value);
-    display: inline-block;
-    padding: 5px;
-    background: var(--trans);
-    font-size: 10pt;
-    color:#fff;
-    border-radius: 3px;
-    border: none; 
-    visibility: visible;
-    width: 100px;
+  display: inline-block;
+  padding: 5px;
+  background: var(--trans);
+  font-size: 10pt;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  visibility: visible;
+  width: 100px;
 }
+
 input.interest-button:checked::before {
   background: var(--trans);
   color: var(--green);
   border: 3px var(--green);
 }
+
 #flex-buttons {
   display: flex;
 }
-
-
