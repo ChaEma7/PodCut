@@ -31,8 +31,13 @@
       <h2>PodCut</h2>
     </header>
     <!-- Søg -->
-    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="fetchSuggested()">
+    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search(this.value)">
+    <section id="search-container" class="hide">
+      <h1>Search Results</h1>
+      <section id="pods-search-container" class="grid-container"></section>
+    </section>
     <!-- indhold -->
+    <section id="hide-when-search-container">
     <section class="indexOverskrifter">
     <h1>Foreslået til dig</h1>
     <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
@@ -109,14 +114,14 @@
       <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
     </section>
     <section id="OtherSuggests" class="grid-container"></section>
-
+  
     <!-- til top -->
     <br>
     <img onclick="topFunction()" class="tilTop" src="img/up.png" alt="up icon">
 
 
 
-    
+  </section>
   </section>
 
   <!-- search page -->

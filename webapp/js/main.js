@@ -114,6 +114,15 @@ async function updateJSONBIN(users) {
 // skrevet af Chalotte
 
 function search(value) {
+  if (value) {
+    document.querySelector("#search-container").classList.remove("hide");
+    document.querySelector("#hide-when-search-container").classList.add("hide");
+} else {
+    document.querySelector("#search-container").classList.add("hide");
+    document.querySelector("#hide-when-search-container").classList.remove("hide");
+}
+
+
   let searchQuery = value.toLowerCase();
   let filteredPods = [];
   for (let pod of _pods) {
@@ -125,7 +134,7 @@ function search(value) {
 
 
   }
-  appendPods(filteredPods, "#suggested");
+  appendPods(filteredPods, "#pods-search-container");
 }
 
 

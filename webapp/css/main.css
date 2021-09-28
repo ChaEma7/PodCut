@@ -601,6 +601,21 @@ form {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.4s, opacity 0.4s linear;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+#search-container {
+  padding: 1em;
+}
+
+#search-container.hide {
+  padding: 0;
+}
+
+.hide > * {
+  display: none;
 }
 
 /* ---------- checkmark styling ---------- */
