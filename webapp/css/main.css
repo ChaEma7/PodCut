@@ -1,5 +1,5 @@
 ::placeholder {
-  color: var(--white);
+  color: var(--transtext);
 }
 
 
@@ -75,6 +75,25 @@ h3 {
   padding: 5px 0;
 }
 
+h4 {
+  font-size: 30px;
+  font-weight: 800;
+  vertical-align: middle;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 30px 0 0 -20px;
+  min-width: 200px;
+}
+
+h5 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--green);
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: -10px 0 0 -20px;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -119,6 +138,7 @@ input {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 9999;
 }
 
 .topbar h2 {
@@ -285,6 +305,25 @@ nav a.active {
 
 /* ============================================= Index =============================================*/
 
+.visAlle {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--green);
+}
+
+.indexOverskrifter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 -15px 0;
+}
+
+.tilTop {
+  height: 46px;
+  width: 46px;
+
+}
+
 /*------------------ Search ----------------*/
 
 input#search {
@@ -392,8 +431,70 @@ input#search::-webkit-search-cancel-button {
   /* placering i kassen */
 }
 
+/* --------------------- hexagon til kategori --------------------*/
 
-/* ---------- grid container styling ---------- */
+.hexagon-in2Kategori {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 175%;
+  visibility: visible;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.hexagonKategori {
+  width: 80px;
+  /* bestemmer størrelsen på hexagon */
+  height: 160px;
+  /* bestemmer størrelsen på hexagon (skal være dobbelt så stor, ellers ødelægges form)*/
+  margin: -26.6px 0 0 280px;
+  /* placering i kassen */
+}
+
+/* billeder til kategorierne */
+.kat-1 {
+  background-image: url(http://cmedia-design.dk/podcast-billeder/truecrime.jpg);
+}
+
+.kat-2 {
+  background-image: url(http://cmedia-design.dk/podcast-billeder/dude.jpg);
+}
+
+.kat-3 {
+  background-image: url(http://cmedia-design.dk/podcast-billeder/rose.jpg);
+}
+
+.kat-4 {
+  background-image: url(http://cmedia-design.dk/podcast-billeder/uddannelse.jpg);
+}
+
+/* ------------ Kategorie kasser -------------*/
+
+.kategori-kasse {
+  display: block;
+  margin: auto;
+  height: 107px;
+  width: 100%;
+  border-radius: 3px;
+  background: var(--trans);
+  font-size: 30px;
+  font-weight: 800;
+  text-align: left;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.kategori-kasse-nederst {
+  margin-bottom: 0;
+}
+
+
+/*============================== grid container styling =============================== */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

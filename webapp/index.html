@@ -31,10 +31,92 @@
       <h2>PodCut</h2>
     </header>
     <!-- Søg -->
-    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search('')">
+    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="fetchSuggested()">
     <!-- indhold -->
-    <h1 class="left">Foreslået til dig</h1>
-    <div id="suggested" class="grid-container"></div>
+    <section class="indexOverskrifter">
+    <h1>Foreslået til dig</h1>
+    <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
+    </section>
+    <section id="suggested" class="grid-container"></section>
+    
+    <!-- Nye afsnit -->
+    <br>
+    <section class="indexOverskrifter">
+      <h1>Nye afsnit</h1>
+      <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
+    </section>
+    <section id="newPods" class="grid-container"></section>
+   
+    
+
+
+
+
+    <br>
+    <section class="indexOverskrifter">
+      <h1>Kategorier</h1>
+      <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
+    </section>
+
+    <section id="kategorier">
+
+      <!-- kategorier -->
+    <section id="category">
+    </section>
+
+      <!-- <div onclick="navigateTo('#/recommended')" class="kategori-kasse"> 
+        <h4>True Crime</h4>
+        
+        <div class="hexagon hexagonKategori">
+          <div class="hexagon-in1">
+              <div class="hexagon-in2Kategori kat-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div onclick="navigateTo('#/')" class="kategori-kasse"> 
+        <h4>Horror</h4>
+        <div class="hexagon hexagonKategori">
+          <div class="hexagon-in1">
+              <div class="hexagon-in2Kategori kat-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div onclick="navigateTo('#/')" class="kategori-kasse"> 
+        <h4>Romantik</h4>
+        <div class="hexagon hexagonKategori">
+          <div class="hexagon-in1">
+              <div class="hexagon-in2Kategori kat-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div onclick="navigateTo('#/')" class="kategori-kasse kategori-kasse-nederst"> 
+        <h4>Uddannelse</h4>
+        <div class="hexagon hexagonKategori">
+          <div class="hexagon-in1">
+              <div class="hexagon-in2Kategori kat-4"></div>
+          </div>
+        </div>
+      </div> -->
+
+    </section>
+    <!-- Andre anbefaler -->
+    <br>
+    <section class="indexOverskrifter">
+      <h1>Andre anbefaler</h1>
+      <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
+    </section>
+    <section id="OtherSuggests" class="grid-container"></section>
+
+    <!-- til top -->
+    <br>
+    <img onclick="topFunction()" class="tilTop" src="img/up.png" alt="up icon">
+
+
+
+    
   </section>
 
   <!-- search page -->
