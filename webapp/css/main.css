@@ -114,7 +114,7 @@ a {
   color: var(--white);
 }
 
-input {
+input.common-input {
   margin: 1.5em auto;
   width: 100%;
   max-width: 350px;
@@ -717,6 +717,16 @@ select {
   font-weight: 100;
   font-size: 10pt;
 }*/
+#flex-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.9em;
+  align-items: center;
+}
+
+.interest-button {
+  margin-bottom: 200px;
+}
 
 input.interest-button {
   visibility: hidden;
@@ -724,23 +734,68 @@ input.interest-button {
 
 input.interest-button::before {
   content: attr(value);
-  display: inline-block;
-  padding: 5px;
-  background: var(--trans);
-  font-size: 10pt;
-  color: #fff;
-  border-radius: 3px;
-  border: none;
-  visibility: visible;
-  width: 100px;
-}
+    display: inline-block;
+    background: var(--trans);
+    font-size: 8pt;
+    color:var(--white);
+    border-radius: 3px;
+    border: none; 
+    visibility: visible;
+    width: 105px;
+    height: 32px;
+    text-align: center;
+    margin-top: 5px;
+    font-family: poppins;
+    font-weight: 200;
+    
+    
 
+}
 input.interest-button:checked::before {
   background: var(--trans);
   color: var(--green);
-  border: 3px var(--green);
+  border: 2px solid var(--green);
+  width: 96px;
+  height: 24px;
+}
+input[type="checkbox" i] {
+  margin: 0;
 }
 
-#flex-buttons {
-  display: flex;
+/*------------------------------------------streaming side-----------------------------*/
+.streaming-button {
+  margin-bottom: 2000px;
 }
+
+input.streaming-button {
+  visibility: hidden;
+}
+
+input.streaming-button::before {
+  content: attr(value);
+    display: inline-block;
+    background: var(--trans);
+    font-size: 8pt;
+    color:var(--white);
+    border-radius: 3px;
+    border: none; 
+    visibility: visible;
+    width: 85px;
+    height: 85px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: poppins;
+    font-weight: 200;
+    
+    
+
+}
+input.streaming-button:checked::before {
+  background: var(--trans);
+  color: var(--green);
+  border: 2px solid var(--green);
+  width: 81px;
+  height: 81px;
+}
+

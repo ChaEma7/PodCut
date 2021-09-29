@@ -31,7 +31,7 @@
       <h2>PodCut</h2>
     </header>
     <!-- Søg -->
-    <input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search(this.value)">
+    <input class=common-input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search(this.value)">
     <section id="search-container" class="hide">
       <h1>Search Results</h1>
       <section id="pods-search-container" class="grid-container"></section>
@@ -162,8 +162,8 @@
     <p>Log ind med:</p>
     <img class="fg-icon fg-icon2" src="img/faceGoog.png" alt="facebook og google icon">
     <form>
-      <input id="login-mail" type="email" placeholder="E-mail:">
-      <input id="login-password" type="password" placeholder="Kode:">
+      <input class=common-input id="login-mail" type="email" placeholder="E-mail:">
+      <input class=common-input id="login-password" type="password" placeholder="Kode:">
       <p>Opret en bruger <a onclick="navigateTo('#/create')" style="text-decoration: underline;">her</a></p>
       <div class="loginOrAnuller">
         <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Anuller</button>
@@ -183,11 +183,11 @@
     <p class="lilleleft">Udfyld</p>
     <section>
       <form>
-        <input id="inputName" type="text" placeholder="Fornavn">
-        <input id="inputSurName" type="text" placeholder="Efternavn">
-        <input id="inputMail" type="text" placeholder="Mail">
-        <input id="inputPassword" type="password" placeholder="Kodeord">
-        <input id="inputPasswordRepeat" type="password" placeholder="Gentag kodeord">
+        <input class=common-input id="inputName" type="text" placeholder="Fornavn">
+        <input class=common-input id="inputSurName" type="text" placeholder="Efternavn">
+        <input class=common-input id="inputMail" type="text" placeholder="Mail">
+        <input class=common-input id="inputPassword" type="password" placeholder="Kodeord">
+        <input class=common-input id="inputPasswordRepeat" type="password" placeholder="Gentag kodeord">
         <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Anuller</button>
         <button class="login-knap" type="button" name="button" onclick="add()">Opret</button>
       </form>
@@ -204,17 +204,64 @@
     <br>
     <p class="left">Vælg minimum 5 <strong>(Kan altid ændres)</strong></p>
     <div id="flex-buttons">
-    <input type="checkbox" class="interest-button" value="Krimi"></input>
+    <input type="checkbox" class="interest-button" value="Romantik"></input>
+    <input type="checkbox" class="interest-button" value="Selvhjælp"></input>
+    <input type="checkbox" class="interest-button" value="Comedy"></input>
+    <input type="checkbox" class="interest-button" value="Horror"></input>
+    <input type="checkbox" class="interest-button" value="Feelgood"></input>
+    <input type="checkbox" class="interest-button" value="Psykologi"></input>
+    <input type="checkbox" class="interest-button" value="Samfund og kultur"></input>
+    <input type="checkbox" class="interest-button" value="Thriller"></input>
+    <input type="checkbox" class="interest-button" value="True crime"></input>
     <input type="checkbox" class="interest-button" value="Design"></input>
-  </div>
+    <input type="checkbox" class="interest-button" value="Krimi"></input>
+    <input type="checkbox" class="interest-button" value="Film"></input>
+    <input type="checkbox" class="interest-button" value="Børn"></input>
+    <input type="checkbox" class="interest-button" value="Sundhed"></input>
+    <input type="checkbox" class="interest-button" value="Sport"></input>
+    <input type="checkbox" class="interest-button" value="Fantasy"></input>
+    <input type="checkbox" class="interest-button" value="Videnskab"></input>
+    <input type="checkbox" class="interest-button" value="Historie"></input>
+    <input type="checkbox" class="interest-button" value="Familie"></input>
+    <input type="checkbox" class="interest-button" value="Nyheder"></input>
+    <input type="checkbox" class="interest-button" value="Finans"></input>
+    <input type="checkbox" class="interest-button" value="Mystik"></input>
+    <input type="checkbox" class="interest-button" value="Politik"></input>
+    <input type="checkbox" class="interest-button" value="Kunst"></input>
+    <input type="checkbox" class="interest-button" value="Personlig udvikling"></input>
+    <input type="checkbox" class="interest-button" value="Uddannelse"></input>
+    <input type="checkbox" class="interest-button" value="Webudvikling"></input>
+    
+    
+    </div>
+    <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Tilføj senere</button>
+        <button class="login-knap" type="button" name="button" onclick="add()">Gem og fortsæt</button>
   </section>
 
   <!-- vælg streaming page -->
   <section id="choose-streaming" class="page">
     <header class="topbar">
-
+      <img class="proceslinje" src="img/proces-3.png" alt="proceslinje">
     </header>
+    <h1>Vælg dine streamingtjenester</h1>
+    <br>
+    <p class="left"><strong>(Kan altid ændres)</strong></p>
+    <div id="flex-buttons">
+    <input type="checkbox" class="streaming-button" value="Apple Podcast"></input>
+    <input type="checkbox" class="streaming-button" value="Spotify"></input>
+    <input type="checkbox" class="streaming-button" value="Audible"></input>
+    <input type="checkbox" class="streaming-button" value="Google Podcast"></input>
+    <input type="checkbox" class="streaming-button" value="Podimo"></input>
+    <input type="checkbox" class="streaming-button" value="Mofibo"></input>
+    <input type="checkbox" class="streaming-button" value="Pocket Casts"></input>
+    <input type="checkbox" class="streaming-button" value="Podcast Go"></input>
+    <input type="checkbox" class="streaming-button" value="Dr Lyd"></input>
+  </div>
+
+  <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Tilføj senere</button>
+        <button class="login-knap" type="button" name="button" onclick="add()">Gem og fortsæt</button>
   </section>
+
 
   <!-- foreslået til dig page -->
   <section id="recommended" class="page">
