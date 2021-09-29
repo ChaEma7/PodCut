@@ -6,7 +6,7 @@ console.log("router.js is running!");
  */
 const routes = {
     "#/": "home",
-    "#/search": "search",
+    "#/searchPage": "searchPage",
     "#/favorites": "favorites",
     "#/loginorcreate": "loginorcreate",
     "#/login": "login",

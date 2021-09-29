@@ -24,11 +24,12 @@
   <img src="img/baggrund.jpg" class="baggrunds-billede" alt="baggrund">
 
   <!-- pages -->
-  <!-- home page -->
+  <!------------------------------------------------------------- home page --------------------------------------------------------->
   <section id="home" class="page">
     <header class="topbar">
       <button type="button" class="tilbage-knap" onclick="navigateTo('#/loginorcreate')"></button>
       <h2>PodCut</h2>
+      <img class="lilleProfil" src="img/lilleprofil.png" onclick="navigateTo('#/profile')" alt="lille profilbilled">
     </header>
     <!-- Søg -->
     <input class=common-input id="search" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search(this.value)"  onsearch="search(this.value)">
@@ -52,11 +53,6 @@
     </section>
     <section id="newPods" class="grid-container"></section>
    
-    
-
-
-
-
     <br>
     <section class="indexOverskrifter">
       <h1>Kategorier</h1>
@@ -68,44 +64,6 @@
       <!-- kategorier -->
     <section id="category">
     </section>
-
-      <!-- <div onclick="navigateTo('#/recommended')" class="kategori-kasse"> 
-        <h4>True Crime</h4>
-        
-        <div class="hexagon hexagonKategori">
-          <div class="hexagon-in1">
-              <div class="hexagon-in2Kategori kat-1"></div>
-          </div>
-        </div>
-      </div>
-
-      <div onclick="navigateTo('#/')" class="kategori-kasse"> 
-        <h4>Horror</h4>
-        <div class="hexagon hexagonKategori">
-          <div class="hexagon-in1">
-              <div class="hexagon-in2Kategori kat-2"></div>
-          </div>
-        </div>
-      </div>
-
-      <div onclick="navigateTo('#/')" class="kategori-kasse"> 
-        <h4>Romantik</h4>
-        <div class="hexagon hexagonKategori">
-          <div class="hexagon-in1">
-              <div class="hexagon-in2Kategori kat-3"></div>
-          </div>
-        </div>
-      </div>
-
-      <div onclick="navigateTo('#/')" class="kategori-kasse kategori-kasse-nederst"> 
-        <h4>Uddannelse</h4>
-        <div class="hexagon hexagonKategori">
-          <div class="hexagon-in1">
-              <div class="hexagon-in2Kategori kat-4"></div>
-          </div>
-        </div>
-      </div> -->
-
     </section>
     <!-- Andre anbefaler -->
     <br>
@@ -124,22 +82,22 @@
   </section>
   </section>
 
-  <!-- search page -->
-  <section id="search" class="page">
+  <!---------------------------------------------------------------------------- search page ------------------------------------------>
+  <section id="searchPage" class="page">
     <header class="topbar">
       <h2>Search</h2>
     </header>
     <p>This is my search page</p>
   </section>
 
-  <!-- favorites page -->
+  <!-------------------------------------------------------------------- favorites page -------------------------------------------------->
   <section id="favorites" class="page">
     <header class="topbar">
       <h2>Favorites</h2>
     </header>
   </section>
 
-  <!-- log ind eller opret page -->
+  <!-------------------------------------------------------------- log ind eller opret page ------------------------------------------------>
   <section id="loginorcreate" class="page">
     <header class="topbar">
       <h2>PodCut</h2>
@@ -152,7 +110,7 @@
   </section>
 
 
-  <!-- login page -->
+  <!------------------------------------------------------------- login page ------------------------------------------------------------->
   <section id="login" class="page">
     <header class="topbar">
       <h2>Podcut</h2>
@@ -173,7 +131,7 @@
     <p id="notApproved"></p>
   </section>
 
-  <!-- opret page -->
+  <!------------------------------------------------------------------------ opret page ------------------------------------------------>
   <section id="create" class="page">
     <header class="topbar">
       <img class="proceslinje" src="img/proces-1.png" alt="proceslinje">
@@ -194,7 +152,7 @@
     </section>
   </section>
 
-  <!-- vælg interesser page -->
+  <!-------------------------------------------------------------- vælg interesser page --------------------------------------------------->
   <section id="choose-interests" class="page">
     <header class="topbar">
       <button type="button" class="tilbage-knap" onclick="navigateTo('#/create')"></button>
@@ -202,93 +160,104 @@
     </header>
     <h1>Vælg dine interesser</h1>
     <br>
-    <p class="left">Vælg minimum 5 <strong>(Kan altid ændres)</strong></p>
-    <div id="flex-buttons">
-    <input type="checkbox" class="interest-button" value="Romantik"></input>
-    <input type="checkbox" class="interest-button" value="Selvhjælp"></input>
-    <input type="checkbox" class="interest-button" value="Comedy"></input>
-    <input type="checkbox" class="interest-button" value="Horror"></input>
-    <input type="checkbox" class="interest-button" value="Feelgood"></input>
-    <input type="checkbox" class="interest-button" value="Psykologi"></input>
-    <input type="checkbox" class="interest-button" value="Samfund og kultur"></input>
-    <input type="checkbox" class="interest-button" value="Thriller"></input>
-    <input type="checkbox" class="interest-button" value="True crime"></input>
-    <input type="checkbox" class="interest-button" value="Design"></input>
-    <input type="checkbox" class="interest-button" value="Krimi"></input>
-    <input type="checkbox" class="interest-button" value="Film"></input>
-    <input type="checkbox" class="interest-button" value="Børn"></input>
-    <input type="checkbox" class="interest-button" value="Sundhed"></input>
-    <input type="checkbox" class="interest-button" value="Sport"></input>
-    <input type="checkbox" class="interest-button" value="Fantasy"></input>
-    <input type="checkbox" class="interest-button" value="Videnskab"></input>
-    <input type="checkbox" class="interest-button" value="Historie"></input>
-    <input type="checkbox" class="interest-button" value="Familie"></input>
-    <input type="checkbox" class="interest-button" value="Nyheder"></input>
-    <input type="checkbox" class="interest-button" value="Finans"></input>
-    <input type="checkbox" class="interest-button" value="Mystik"></input>
-    <input type="checkbox" class="interest-button" value="Politik"></input>
-    <input type="checkbox" class="interest-button" value="Kunst"></input>
-    <input type="checkbox" class="interest-button" value="Personlig udvikling"></input>
-    <input type="checkbox" class="interest-button" value="Uddannelse"></input>
-    <input type="checkbox" class="interest-button" value="Webudvikling"></input>
-    
-    
+    <p class="lilleleft">Vælg minimum 5 <strong>(Kan altid ændres)</strong></p>
+    <div class="flex-buttons">
+    <input type="checkbox" class="interest-button" value="Romantik">
+    <input type="checkbox" class="interest-button" value="Selvhjælp">
+    <input type="checkbox" class="interest-button" value="Comedy">
+    <input type="checkbox" class="interest-button" value="Horror">
+    <input type="checkbox" class="interest-button" value="Feelgood">
+    <input type="checkbox" class="interest-button" value="Psykologi">
+    <input type="checkbox" class="interest-button" value="Samfund og kultur">
+    <input type="checkbox" class="interest-button" value="Thriller">
+    <input type="checkbox" class="interest-button" value="True crime">
+    <input type="checkbox" class="interest-button" value="Design">
+    <input type="checkbox" class="interest-button" value="Krimi">
+    <input type="checkbox" class="interest-button" value="Film">
+    <input type="checkbox" class="interest-button" value="Børn">
+    <input type="checkbox" class="interest-button" value="Sundhed">
+    <input type="checkbox" class="interest-button" value="Sport">
+    <input type="checkbox" class="interest-button" value="Fantasy">
+    <input type="checkbox" class="interest-button" value="Videnskab">
+    <input type="checkbox" class="interest-button" value="Historie">
+    <input type="checkbox" class="interest-button" value="Familie">
+    <input type="checkbox" class="interest-button" value="Nyheder">
+    <input type="checkbox" class="interest-button" value="Finans">
+    <input type="checkbox" class="interest-button" value="Mystik">
+    <input type="checkbox" class="interest-button" value="Politik">
+    <input type="checkbox" class="interest-button" value="Kunst">
+    <input type="checkbox" class="interest-button" value="Personlig udvikling">
+    <input type="checkbox" class="interest-button" value="Uddannelse">
+    <input type="checkbox" class="interest-button" value="Webudvikling">
     </div>
-    <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Tilføj senere</button>
-        <button class="login-knap" type="button" name="button" onclick="add()">Gem og fortsæt</button>
+    
+    <div class="opret-knapper">
+      <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Tilføj senere</button>
+      <button class="login-knap" type="button" name="button" onclick="navigateTo('#/choose-streaming')">Gem og fortsæt</button>
+    </div>
   </section>
 
-  <!-- vælg streaming page -->
+  <!---------------------------------------------------- vælg streaming page ------------------------------------------------------------->
   <section id="choose-streaming" class="page">
     <header class="topbar">
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/choose-interests')"></button>
       <img class="proceslinje" src="img/proces-3.png" alt="proceslinje">
     </header>
     <h1>Vælg dine streamingtjenester</h1>
     <br>
     <p class="left"><strong>(Kan altid ændres)</strong></p>
-    <div id="flex-buttons">
-    <input type="checkbox" class="streaming-button" value="Apple Podcast"></input>
-    <input type="checkbox" class="streaming-button" value="Spotify"></input>
-    <input type="checkbox" class="streaming-button" value="Audible"></input>
-    <input type="checkbox" class="streaming-button" value="Google Podcast"></input>
-    <input type="checkbox" class="streaming-button" value="Podimo"></input>
-    <input type="checkbox" class="streaming-button" value="Mofibo"></input>
-    <input type="checkbox" class="streaming-button" value="Pocket Casts"></input>
-    <input type="checkbox" class="streaming-button" value="Podcast Go"></input>
-    <input type="checkbox" class="streaming-button" value="Dr Lyd"></input>
+    <div class="flex-buttons">
+    <input type="checkbox" class="streaming-button" value="Apple Podcast">
+    <input type="checkbox" class="streaming-button" value="Spotify">
+    <input type="checkbox" class="streaming-button" value="Audible">
+    <input type="checkbox" class="streaming-button" value="Google Podcast">
+    <input type="checkbox" class="streaming-button" value="Podimo">
+    <input type="checkbox" class="streaming-button" value="Mofibo">
+    <input type="checkbox" class="streaming-button" value="Pocket Casts">
+    <input type="checkbox" class="streaming-button" value="Podcast Go">
+    <input type="checkbox" class="streaming-button" value="Dr Lyd">
   </div>
-
+  <br>
+<div class="opret-knapper">
   <button class="anuller-knap" type="button" onclick="navigateTo('#/loginorcreate')">Tilføj senere</button>
-        <button class="login-knap" type="button" name="button" onclick="add()">Gem og fortsæt</button>
+  <button class="login-knap" type="button" name="button" onclick="add()">Gem og fortsæt</button>
+</div>
   </section>
 
 
-  <!-- foreslået til dig page -->
+  <!--------------------------------------------------------------- foreslået til dig page ----------------------------------------------->
   <section id="recommended" class="page">
     <header class="topbar">
 
     </header>
   </section>
 
-  <!-- profil page -->
+  <!------------------------------------------------------------- profil page ------------------------------------------------------->
   <section id="profile" class="page">
     <header class="topbar">
 
     </header>
   </section>
 
-  <!-- edit profile page -->
+  <!------------------------------------------------------------- edit profile page -------------------------------------------------->
   <section id="edit-profile" class="page">
     <header class="topbar">
 
     </header>
   </section>
 
-  <!-- detail view -->
+  <!-------------------------------------------------------------- detail view ------------------------------------------------------->
   <section id="detail" class="page">
     <header class="topbar">
-
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/')"></button>
+      <h2>PodCut</h2>
+      <img class="lilleProfil" src="img/lilleprofil.png" onclick="navigateTo('#/profile')" alt="lille profilbilled">
     </header>
+
+    <section id="detailViewContainer"></section>
+
+    <div id="andreSiger"></div>
+
   </section>
 
 

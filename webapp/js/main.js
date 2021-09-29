@@ -117,10 +117,10 @@ function search(value) {
   if (value) {
     document.querySelector("#search-container").classList.remove("hide");
     document.querySelector("#hide-when-search-container").classList.add("hide");
-} else {
+  } else {
     document.querySelector("#search-container").classList.add("hide");
     document.querySelector("#hide-when-search-container").classList.remove("hide");
-}
+  }
 
 
   let searchQuery = value.toLowerCase();
@@ -197,7 +197,7 @@ fetchOther();
 
 
 
-async function fetcCategory() {
+async function fetchCategory() {
   const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=34";
 
   const response = await fetch(url);
@@ -208,7 +208,21 @@ async function fetcCategory() {
 
 }
 
-fetcCategory();
+fetchCategory();
+
+
+async function fetchAndreSiger() {
+  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=36";
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  let pods = data.slice(0, 4);
+  appendCategory(pods, "#andreSiger");
+
+}
+
+fetchAndreSiger();
 
 
 
@@ -247,7 +261,7 @@ function appendCategory(categories, element) {
       
       <div class="hexagon hexagonKategori">
           <div class="hexagon-in1">
-              <div class="hexagon-in2Kategori" style="background-image: url(${category.acf.img})"></div>
+              <div class="hexagon-in2" style="background-image: url(${category.acf.img})"></div>
           </div>
       </div>
       <div class="index-card-text">
@@ -289,12 +303,73 @@ function getStars(pod) {
 }
 
 
-//=============================== Emner =======================================
+//=============================== Detail View =======================================
+
+function showDetailView(id) {
+  const pod = _pods.find(pod => pod.id == id);
+  document.querySelector("#detailViewContainer").innerHTML = /*html*/ `
+
+        <div class="hexagon hexagonDetail">
+            <div class="hexagon-in1">
+                <div class="hexagon-in2" style="background-image: url(${pod.acf.img})"></div>
+            </div>
+        </div>    
+
+     
+      <div class="titel-kasse">
+          <h1>${pod.acf.langtitel}</h1>
+      </div>
+      <div class="detail-ikoner">
+      <img  src="../img/play.png" alt="play icon">
+      <img  src="../img/like.png" alt="favorit icon">
+      <img  src="../img/anmeld.png" alt="anmeld icon">
+      </div>
+      <article>
+      <h1 class="left">Beskrivelse</h1>
+      <p class="lilleleft">${pod.acf.beskrivelse}</p>
+      <br>
+      <p class="detail-stats">
+      Værter: ${pod.acf.host} <br>
+      Afsnit: ${pod.acf.afsnit} <br>
+      Sprog: ${pod.acf.sprog} <br>
+      Udgivelses år: ${pod.acf.udgivelse}</p>
+
+      <h1 class="left">Kan lyttes på</h1>
+      <div class="streaming-icons">
+      <img  src="../img/podimo.png" alt="podimo icon"> 
+      <img  src="../img/audible.png" alt="audible icon">
+      <img  src="../img/applePod.png" alt="apple podcast icon">
+      </div>
+
+      <h1 class="left">Andre siger</h1>
+      </article>
+          
+     
+  `;
+  navigateTo("#/detail");
+}
+
+//=============================== Append Review =======================================
+
+function appendReview(reviews, element) {
+  let html = "";
+
+  for (const review of reviews) {
+    html += /*html*/ `
+      <article class="andreSiger-kasse">
+      
+      <div class="review-card">
+      <h4>${review.title.rendered}</h4>
+      <h5>${getCount(category)} emner</h5>
+      </div>
+      </article>
+      `;
+  }
+  document.querySelector(element).innerHTML = html;
+}
 
 
-
-
-// =============================== Til top function =============================0
+// =============================== Til top function =============================
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
