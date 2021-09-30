@@ -56,7 +56,7 @@
     <br>
     <section class="indexOverskrifter">
       <h1>Kategorier</h1>
-      <a onclick="navigateTo('#/recommended')" class="visAlle">Vis alle</a>
+      <a onclick="navigateTo('#/searchPage')" class="visAlle">Vis alle</a>
     </section>
 
     <section id="kategorier">
@@ -89,14 +89,21 @@
       <h2>PodCut</h2>
       <img class="lilleProfil" src="img/lilleprofil.png" onclick="navigateTo('#/profile')" alt="lille profilbilled">
     </header>
-    <input class=common-input id="searchPageSearchBar" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search2(this.value)"  onsearch="search(this.value)">
+    <input class=common-input id="searchPageSearchBar" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search2(this.value)"  onsearch="search2(this.value)">
     <section id="search-container2" class="hide">
       <h1>Search Results</h1>
       <section id="pods-search-container2" class="grid-container"></section>
     </section>
 
     <section id="hide-when-search-container2">
+      <h1 class="left">Udforsk</h1>
+      <div class="sort-filter-icons">
+      <img src="img/filter.png" alt="">
+      <img src="img/sorter.png" alt="">
+      </div>
       <section class="allCategories"></section>
+      <br>
+    <img onclick="topFunction()" class="tilTop" src="img/up.png" alt="up icon">
     </section>
   </section>
 
@@ -238,8 +245,21 @@
   <!--------------------------------------------------------------- foreslået til dig page ----------------------------------------------->
   <section id="recommended" class="page">
     <header class="topbar">
-
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/')"></button>
+      <h2>PodCut</h2>
+      <img class="lilleProfil" src="img/lilleprofil.png" onclick="navigateTo('#/profile')" alt="lille profilbilled">
     </header>
+    <h1 class="left">Foreslået til dig</h1>
+    <div class="sort-filter-icons">
+      <img src="img/filter.png" alt="">
+      <img src="img/sorter.png" alt="">
+    </div>
+
+    <section id="recommended-container" class="grid-container2"></section>
+ <!-- til top -->
+ <br>
+ <img onclick="topFunction()" class="tilTop" src="img/up.png" alt="up icon">
+
   </section>
 
   <!------------------------------------------------------------- profil page ------------------------------------------------------->

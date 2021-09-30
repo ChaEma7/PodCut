@@ -7,12 +7,16 @@ const _headers = {
   "Content-Type": "application/json"
 };
 
+
 let _pods = [];
 let _users = [];
 let _categories = [];
 
+/* Vores global variabler giver os mulighed for at tilgå variablen globalt i koden,
+og er derfor tilgængelige i alle funtioner  */
+
 // =============== Login kode ==================
-// Skrevet af Line
+// Skrevet af Chalotte og Line
 window.login = () => {
   const mail = document.querySelector("#login-mail").value;
   const password = document.querySelector("#login-password").value;
@@ -32,12 +36,16 @@ window.login = () => {
   }
 }
 
-// ========== OPRET PROFIL ==========
-// Skrevet af Line
+/* Hvis mail og kode stemmer overens med vores agument i if-funktionen, 
+logger brugeren ind og bliver navigeret til vores forside: #/ = #/home (se router.js).
+Hvis ikke mail eller kode er rigtigt, får brugeren besked om dette. */
 
-//Fetchs person data from jsonbin
+// ========== OPRET PROFIL ==========
+// Skrevet af Chalotte og Line
+
+//Fetchs person data fra jsonbin
 async function loadUsers() {
-  const url = _baseUrl + "/latest"; // make sure to get the latest version
+  const url = _baseUrl + "/latest"; // + "/latest" giver os den seneste version af vores jsonbin
   const response = await fetch(url, {
     headers: _headers
   });
@@ -61,7 +69,6 @@ function appendUsers() {
       </article>`
   }
   document.querySelector("#profile").innerHTML = htmlTemplate;
-
 }
 
 async function add() {
@@ -112,7 +119,7 @@ async function updateJSONBIN(users) {
 }
 
 // ======================= Search =====================================
-// skrevet af Chalotte
+// Skrevet af Chalotte og Line
 
 function search(value) {
   if (value) {
@@ -136,6 +143,17 @@ function search(value) {
   }
   appendPods(filteredPods, "#pods-search-container");
 }
+
+/* Den første del af koden bestemmer at, hvis der er noget skrevet i input feltet (værdi),
+skal indholdet af ID'et #search-container fremvises. Det gør den ved at fjerne klassen .hide 
+som er stylet i css til ikke at blive vist. Herefter tilføjer den .hide klassen til ID'et 
+#hide-when-search-container og skjuler denne. 
+Hvis ikke der er nogen værdi i feltet skal #search-container skjules og #hide-when-search-container vises.
+
+- Variablen searchQuery bestemmer at value skal oversættes til LowerCase, så uanset om værdien bliver skrevet med stort eller småt, 
+kan vores kode genkende værdien.
+Vi giver koden mulighed for at vide, hvor den skal kigge efter værdien i vores json. Der kan pt. søges på genre og title. Hvis værdien genkendes
+skubbes den og vises i #pods-search-container */
 
 function search2(value) {
 
@@ -162,8 +180,10 @@ function search2(value) {
   appendPods(filteredPods, "#pods-search-container2");
 }
 
+/* Se overstående kommentar. Denne gør det samme, men bliver vist på en anden side.*/
+
 // ======================= fetch podcasts =============================
-// Skrevet af Chalotte
+// Skrevet af Chalotte og Line
 
 async function fetchPods() {
   const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed";
@@ -176,7 +196,10 @@ async function fetchPods() {
 
 fetchPods();
 
-
+/* Henter alle posts (eller objekter i arrayet) ned fra vores json url. async og await er en syntaks der fortæller, 
+at JS engine skal vente med at læse videre i koden til den har modtaget data fra json. På den måde sikre vi, 
+at alt indhold vi ønsker fremvist bliver fremvist. 
+Denne data samles i vores global variabel _pods, og vi kan derfor tilgå denne data i alle funktioner*/
 
 
 async function fetchSuggested() {
@@ -190,7 +213,29 @@ async function fetchSuggested() {
 
 }
 
-fetchSuggested();
+fetchSuggested()
+
+/* Her henter vi kun de posts som tilhøre en bestemt kategori. I dette tilfælde har denne kategori ID'et 21 og er vores
+"foreslået til dig" kategori. Vi vil kun have vist de første 4 posts, derfor deler vi arrayet over med data.slice og giver det
+et agument der hedder (0, 4). Herefter append'er (tilføjer) vi disse til sektionen med ID'et #suggested.
+Denne metode er benyette flere steder nedenfor. */
+
+async function fetchAllSuggested() {
+  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=21";
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  let pods = data;
+  appendAllSuggested(pods, "#recommended-container");
+
+}
+
+fetchAllSuggested();
+
+/* i dette tilfælde ønsker vi alle posts (eller objekter i arrayet) vist. Derfor fjerner vi .slice.
+Vi er dog nød til at lave en ny function her. Havde vi kaldt fetchSuggested() ville vi kun få de 4 første posts. */
+
 
 async function fetchNew() {
   const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=22";
@@ -231,6 +276,8 @@ async function fetchAllCategories() {
 
 fetchAllCategories();
 
+/* Her skaber vi en ny global variabel som henter alle vores kategorier ned. */
+
 
 
 async function fetchCategory() {
@@ -248,9 +295,10 @@ fetchCategory();
 
 
 
+//=============================== Append =======================================
+// Skrevet af Chalotte og Line
 
-
-// show podcast details
+// viser podcast details
 function appendPods(pods, element) {
   let html = "";
 
@@ -274,6 +322,14 @@ function appendPods(pods, element) {
   }
   document.querySelector(element).innerHTML = html;
 }
+
+/* Her definerer vi, hvordan vores inhentet data fra json skal fremvises. Ved at benyttet et loop (for) 
+ fortæller vi JS engine, at den skal gentage denne funktion for alle objekter i arrayet og, hvor i arrayet den
+ skal finde den ønskede data.
+ I dette tilfælde vil vi gerne fremvise et billede, titlen, undertitlen, genre og rating. Alt dette samles i en article,
+ som ved onclick sender brugeren videre til en datalje side udfra objektets ID.
+ Gennem "document.querySelector(element).innerHTML = html" bliver det sendt DOM'en.
+ Det samme gælder for nedestående append funktioner.*/
 
 
 function appendCategory(categories, element) {
@@ -308,6 +364,36 @@ function getCount(category) {
   return count;
 }
 
+function appendAllSuggested(pods, element) {
+  let html = "";
+
+  for (const pod of pods) {
+    html += /*html*/ `
+        <article class="show-card" onclick ="showDetailView(${pod.id})">
+        
+        <div class="hexagon hexagon-show-card">
+            <div class="hexagon-in1">
+                <div class="hexagon-in2" style="background-image: url(${pod.acf.img})"></div>
+            </div>
+        </div>
+        <div class="show-card-text">
+        <div class="showCard-flex-top">
+        <h2>${pod.acf.langtitel}</h2>
+        <button href="#" class="lyt-nu-knap">Lyt nu</button>
+        </div>
+        <h3>${pod.acf.teaser}</h3>
+        <div class="showCard-flex">
+        <img class="stars" src="${getStars(pod)}">
+        <p class="genre" >${pod.acf.tid} min</p>
+        <p class="genre" >${pod.acf.genre}</p>
+        </div>
+        </div>
+        </article>
+        `;
+  }
+  document.querySelector(element).innerHTML = html;
+}
+
 // Fortæller hvilket billede der skal bruges alt efter rating
 
 function getStars(pod) {
@@ -326,8 +412,13 @@ function getStars(pod) {
   return star;
 }
 
+/* Vi vil gerne have at objektes rating bliver vist med stjerner. For at automaticerer dette,
+har vi lavet en if funktion, som vi kalder i append. Denne fungerer således, at hvis objektets rating 
+er 2, skal den hente det billede med 2 stjerne osv. Hvis ikke nogle af vores if'er gør sig gældende,
+må vi gå udfra, at objektet har den mindste rating, og skal derfor hente billedet med 1 stjerne. */
 
 //=============================== Detail View =======================================
+// Skrevet af Chalotte og Line
 
 function showDetailView(id) {
   const pod = _pods.find(pod => pod.id == id);
@@ -378,6 +469,7 @@ function showDetailView(id) {
 
 
 // =============================== Til top function =============================
+// Skrevet af Chalotte og Line
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
