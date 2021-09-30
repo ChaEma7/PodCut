@@ -9,6 +9,7 @@ const _headers = {
 
 let _pods = [];
 let _users = [];
+let _categories = [];
 
 // =============== Login kode ==================
 // Skrevet af Line
@@ -122,7 +123,6 @@ function search(value) {
     document.querySelector("#hide-when-search-container").classList.remove("hide");
   }
 
-
   let searchQuery = value.toLowerCase();
   let filteredPods = [];
   for (let pod of _pods) {
@@ -137,6 +137,30 @@ function search(value) {
   appendPods(filteredPods, "#pods-search-container");
 }
 
+function search2(value) {
+
+  if (value) {
+    document.querySelector("#search-container2").classList.remove("hide");
+    document.querySelector("#hide-when-search-container2").classList.add("hide");
+  } else {
+    document.querySelector("#search-container2").classList.add("hide");
+    document.querySelector("#hide-when-search-container2").classList.remove("hide");
+  }
+
+
+  let searchQuery = value.toLowerCase();
+  let filteredPods = [];
+  for (let pod of _pods) {
+    let title = pod.title.rendered.toLowerCase();
+    let genre = pod.acf.genre.toLowerCase();
+    if (title.includes(searchQuery) || genre.includes(searchQuery)) {
+      filteredPods.push(pod);
+    }
+
+
+  }
+  appendPods(filteredPods, "#pods-search-container2");
+}
 
 // ======================= fetch podcasts =============================
 // Skrevet af Chalotte
@@ -195,6 +219,18 @@ async function fetchOther() {
 
 fetchOther();
 
+async function fetchAllCategories() {
+  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=34";
+
+  const response = await fetch(url);
+  const data = await response.json();
+  _categories = data;
+  console.log(_categories)
+  appendCategory(_categories, ".allCategories")
+}
+
+fetchAllCategories();
+
 
 
 async function fetchCategory() {
@@ -211,18 +247,6 @@ async function fetchCategory() {
 fetchCategory();
 
 
-async function fetchAndreSiger() {
-  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=36";
-
-  const response = await fetch(url);
-  const data = await response.json();
-
-  let pods = data.slice(0, 4);
-  appendCategory(pods, "#andreSiger");
-
-}
-
-fetchAndreSiger();
 
 
 
@@ -342,6 +366,8 @@ function showDetailView(id) {
       </div>
 
       <h1 class="left">Andre siger</h1>
+      <h1 class="left">Mere som dette</h1>
+
       </article>
           
      
@@ -349,24 +375,6 @@ function showDetailView(id) {
   navigateTo("#/detail");
 }
 
-//=============================== Append Review =======================================
-
-function appendReview(reviews, element) {
-  let html = "";
-
-  for (const review of reviews) {
-    html += /*html*/ `
-      <article class="andreSiger-kasse">
-      
-      <div class="review-card">
-      <h4>${review.title.rendered}</h4>
-      <h5>${getCount(category)} emner</h5>
-      </div>
-      </article>
-      `;
-  }
-  document.querySelector(element).innerHTML = html;
-}
 
 
 // =============================== Til top function =============================

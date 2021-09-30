@@ -689,8 +689,15 @@ input.interest-button:checked::before {
 
 
 /* ============================================= streaming side ============================================= */
+.flex-buttons-streaming {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5em;
+  align-items: center;
+}
+
 .streaming-button {
-  margin-bottom: 2000px;
+  margin-bottom: 80px;
 }
 
 input.streaming-button {
@@ -707,12 +714,13 @@ input.streaming-button::before {
     border: none; 
     visibility: visible;
     width: 85px;
-    height: 85px;
+    height: 20px;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
     font-family: poppins;
     font-weight: 200;
+    padding-top: 65px;
     
     
 
@@ -722,8 +730,19 @@ input.streaming-button:checked::before {
   color: var(--green);
   border: 2px solid var(--green);
   width: 81px;
-  height: 81px;
+  height: 16px;
 }
+
+.flex-buttons-streaming img {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
+.sb1 {
+  margin: -128px 0 0 25px;
+}
+
 
 /* ============================================= Detale view side ============================================= */
 

@@ -17,7 +17,7 @@
   <!-- tabbar navigation -->
   <nav>
     <a class="nav-link" href="#/"><img src="img/icons8-home-33.png" alt="home icon"></a>
-    <a class="nav-link" href="#/search"><img src="img/icons8-search-33.png" alt="søg icon"></a>
+    <a class="nav-link" href="#/searchPage"><img src="img/icons8-search-33.png" alt="søg icon"></a>
     <a class="nav-link" href="#/favorites"><img src="img/icons8-heart-33.png" alt="hjerte icon"></a>
   </nav>
 
@@ -85,9 +85,19 @@
   <!---------------------------------------------------------------------------- search page ------------------------------------------>
   <section id="searchPage" class="page">
     <header class="topbar">
-      <h2>Search</h2>
+      <button type="button" class="tilbage-knap" onclick="navigateTo('#/')"></button>
+      <h2>PodCut</h2>
+      <img class="lilleProfil" src="img/lilleprofil.png" onclick="navigateTo('#/profile')" alt="lille profilbilled">
     </header>
-    <p>This is my search page</p>
+    <input class=common-input id="searchPageSearchBar" type="search" placeholder=" Søg podcast, kategori, profil eller podcaster" onkeyup="search2(this.value)"  onsearch="search(this.value)">
+    <section id="search-container2" class="hide">
+      <h1>Search Results</h1>
+      <section id="pods-search-container2" class="grid-container"></section>
+    </section>
+
+    <section id="hide-when-search-container2">
+      <section class="allCategories"></section>
+    </section>
   </section>
 
   <!-------------------------------------------------------------------- favorites page -------------------------------------------------->
@@ -204,18 +214,18 @@
       <img class="proceslinje" src="img/proces-3.png" alt="proceslinje">
     </header>
     <h1>Vælg dine streamingtjenester</h1>
-    <br>
     <p class="left"><strong>(Kan altid ændres)</strong></p>
-    <div class="flex-buttons">
-    <input type="checkbox" class="streaming-button" value="Apple Podcast">
-    <input type="checkbox" class="streaming-button" value="Spotify">
-    <input type="checkbox" class="streaming-button" value="Audible">
-    <input type="checkbox" class="streaming-button" value="Google Podcast">
-    <input type="checkbox" class="streaming-button" value="Podimo">
-    <input type="checkbox" class="streaming-button" value="Mofibo">
-    <input type="checkbox" class="streaming-button" value="Pocket Casts">
-    <input type="checkbox" class="streaming-button" value="Podcast Go">
-    <input type="checkbox" class="streaming-button" value="Dr Lyd">
+    <div class="flex-buttons-streaming">
+    <input type="checkbox" class="streaming-button" name="sb1" value="Apple Podcast">
+    <img class="sb1" src="img/applePod.png" alt="">
+    <input type="checkbox" class="streaming-button sb2" value="Spotify">
+    <input type="checkbox" class="streaming-button sb3" value="Audible">
+    <input type="checkbox" class="streaming-button sb4" value="Google Podcast">
+    <input type="checkbox" class="streaming-button sb5" value="Podimo">
+    <input type="checkbox" class="streaming-button sb6" value="Mofibo">
+    <input type="checkbox" class="streaming-button sb7" value="Pocket Casts">
+    <input type="checkbox" class="streaming-button sb8" value="Podcast Go">
+    <input type="checkbox" class="streaming-button sb9" value="DR Lyd">
   </div>
   <br>
 <div class="opret-knapper">
@@ -256,7 +266,6 @@
 
     <section id="detailViewContainer"></section>
 
-    <div id="andreSiger"></div>
 
   </section>
 
