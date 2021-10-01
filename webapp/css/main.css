@@ -696,7 +696,7 @@ input.interest-button::before {
     margin-top: 5px;
     font-family: poppins;
     font-weight: 200;
-    padding-top: 5.5px;
+    padding-top: 7.5px;
 }
 
 
@@ -706,7 +706,8 @@ input.interest-button:checked::before {
   color: var(--green);
   border: 2px solid var(--green);
   width: 96px;
-  height: 18.5px;
+  height: 20.5px;
+  padding-top: 5.5px;
 }
 
 .opret-knapper {
@@ -742,14 +743,14 @@ input.streaming-button::before {
     border-radius: 3px;
     border: none; 
     visibility: visible;
-    width: 85px;
+    width: 90px;
     height: 20px;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
     font-family: poppins;
     font-weight: 200;
-    padding-top: 65px;
+    padding-top: 70px;
     
     
 
@@ -758,18 +759,52 @@ input.streaming-button:checked::before {
   background: var(--trans);
   color: var(--green);
   border: 2px solid var(--green);
-  width: 81px;
-  height: 16px;
+  width: 86px;
+  height: 17px;
+  padding-top: 68px;
 }
 
 .flex-buttons-streaming img {
   height: 40px;
-  width: 40px;
+  width: auto;
   position: absolute;
 }
 
+/*--------- Ikon placering --------*/
 .sb1 {
   margin: -128px 0 0 25px;
+}
+
+.sb2 {
+  margin: -128px 0 0 140px;
+}
+
+.sb3 {
+  margin: -128px 0 0 244px;
+}
+
+.sb4 {
+  margin: -25px 0 0 25px;
+}
+
+.sb5 {
+  margin: -25px 0 0 140px;
+}
+
+.sb6 {
+  margin: -25px 0 0 255px;
+}
+
+.sb7 {
+  margin: 80px 0 0 25px;
+}
+
+.sb8 {
+  margin: 80px 0 0 140px;
+}
+
+.sb9 {
+  margin: 80px 0 0 249px;
 }
 
 
@@ -863,7 +898,7 @@ margin: 8px 0 0 0;
 }
 
 
-.stars {
+.stars2 {
   position: relative;
   width: 40%;
   bottom: 12px;
