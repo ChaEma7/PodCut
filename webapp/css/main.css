@@ -22,7 +22,6 @@ html {
   font-family: 'Poppins', sans-serif;
   height: 100%;
   text-align: center;
-  width: 100%;
 }
 
 body {
@@ -127,6 +126,7 @@ input.common-input {
   border-radius: 3px;
   background-color: var(--trans);
   color: rgb(255, 255, 255);
+  font-family: poppins;
 }
 
 /* ===================================== topbar styling ===================================== */
@@ -168,7 +168,7 @@ input.common-input {
   height: 34px;
   width: 34px;
   position: fixed;
-  left: 1.3em;
+  left: 1.2em;
   top: 8px;
   background-color: #c4e7d400;
   background-image: url(../img/tilbage.png);
@@ -232,9 +232,6 @@ nav a.active {
 
 }
 
-
-
-
 /* ------------- sideskift animations ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -291,6 +288,7 @@ nav a.active {
   justify-content: center;
   margin: 40px;
   gap: 15px;
+  font-family: poppins;
 }
 
 
@@ -301,6 +299,7 @@ nav a.active {
   border: none;
   font-size: 14px;
   color: var(--transtext);
+  font-family: poppins;
 }
 
 .login-knap {
@@ -311,6 +310,7 @@ nav a.active {
   border-radius: 3px;
   font-size: 14px;
   color: var(--gray);
+  font-family: poppins;
 }
 
 /* ============================================= Index =============================================*/
@@ -345,6 +345,7 @@ input#search {
   text-indent: 25px;
   transition: 0.3s;
   margin-top: 0px;
+  font-size: 9pt;
 }
 
 input#search:focus {
@@ -371,6 +372,7 @@ input#searchPageSearchBar {
   text-indent: 25px;
   transition: 0.3s;
   margin-top: 0px;
+  font-size: 9pt;
 }
 
 input#searchPageSearchBar:focus {
@@ -589,8 +591,6 @@ form {
   margin: auto;
 }
 
-
-
 /* ---------- loader styling ---------- */
 #loader {
   position: fixed;
@@ -717,8 +717,6 @@ input.interest-button:checked::before {
 }
 
 
-
-
 /* ============================================= streaming side ============================================= */
 .flex-buttons-streaming {
   display: grid;
@@ -823,9 +821,8 @@ input.streaming-button:checked::before {
 /* ============================================= Søg og Kategori side ============================================= */
 
 .sort-filter-icons {
-position: absolute;
-right: 1.3em;
-margin: -28px 0 0 0;
+position: relative;
+margin: -28px 0 0 255px;
 }
 
 .sort-filter-icons img {
