@@ -1,6 +1,7 @@
 console.log("router.js is running!");
 
-/**
+/** Skrevet af Chalotte og Line
+ * 
  * All routes of the SPA
  * "path": "id of page in DOM"
  */

@@ -7,7 +7,7 @@ const _headers = {
   "Content-Type": "application/json"
 };
 
-
+// Globale variabler
 let _pods = [];
 let _users = [];
 let _categories = [];
@@ -38,7 +38,7 @@ window.login = () => {
 
 /* Hvis mail og kode stemmer overens med vores agument i if-funktionen, 
 logger brugeren ind og bliver navigeret til vores forside: #/ = #/home (se router.js).
-Hvis ikke mail eller kode er rigtigt, får brugeren besked om dette. */
+Hvis ikke mail eller kode er rigtigt, får brugeren besked om dette, og kommer ikke videre. */
 
 // ========== OPRET PROFIL ==========
 // Skrevet af Chalotte og Line
@@ -58,6 +58,7 @@ async function loadUsers() {
 }
 loadUsers();
 
+//Viser de oprettede bruger data
 function appendUsers() {
   let htmlTemplate = "";
   for (let user of _users) {
@@ -71,6 +72,7 @@ function appendUsers() {
   document.querySelector("#profile").innerHTML = htmlTemplate;
 }
 
+//Opretter en ny user med properties: name, surname, mail, password
 async function add() {
   console.log("Add button clicked");
 
@@ -79,6 +81,7 @@ async function add() {
   let inputMail = document.getElementById('inputMail');
   let inputPassword = document.getElementById('inputPassword');
 
+ //nyt user objekt
   let newUser = {
     name: inputName.value,
     surname: inputSurName.value,
@@ -86,6 +89,7 @@ async function add() {
     password: inputPassword.value
 
   };
+  //pusher ny user til _user arrayet
   _users.push(newUser);
   await updateJSONBIN(_users);
 
@@ -101,22 +105,26 @@ async function add() {
 }
 
 /**
- * Updates the data source on jsonbin with a given users arrays
+ //opdaterer data af JSONBIN
+
  * @param {Array} users 
  */
 async function updateJSONBIN(users) {
-  // put users array to jsonbin
+  // tilføjer users array til jsonbin
   const response = await fetch(_baseUrl, {
     method: "PUT",
     headers: _headers,
     body: JSON.stringify(users)
   });
-
-  const result = await response.json();
+// afventer resultatet
+  const result = await response.json(); //nyt opdateret users array fra JSONBIN
+  console.log(result);
   console.log(result);
 
+  //opdatering af DOM med nye users
   appendUsers(result.record);
 }
+
 
 
 // ======================= fetch podcasts =============================
@@ -148,10 +156,10 @@ async function fetchPods() {
 
 }
 
-/* Henter alle posts (eller objekter i arrayet) ned fra vores json url. async og await er en syntaks der fortæller, 
-at JS engine skal vente med at læse videre i koden til den har modtaget data fra json. På den måde sikre vi, 
-at alt indhold vi ønsker fremvist bliver fremvist. 
-Denne data samles i vores global variabel _pods, og vi kan derfor tilgå denne data i alle funktioner*/
+/* Henter alle posts (eller objekter i arrayet) ned fra vores json url. Async og await er en syntaks der fortæller, 
+at JS engine skal vente med at læse videre i koden til den har modtaget data fra json. På den måde sikrer vi, 
+at alt indhold vi ønsker vist bliver vist. 
+Denne data samles i vores globale variabel _pods, og vi kan derfor tilgå denne data i alle funktioner*/
 
 
 async function fetchSuggested() {
