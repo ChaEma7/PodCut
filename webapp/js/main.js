@@ -148,7 +148,7 @@ med at læse videre i koden til den har modtaget de ønskede data fra fetchPods(
 Denne data samles i vores global variabel _pods.*/
 
 async function fetchPods() {
-  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed";
+  const url = "http://cmedia-design.dk/wordpress/wp-json/wp/v2/posts?_embed&per_page=100";
 
   const response = await fetch(url);
   const data = await response.json();
@@ -385,7 +385,9 @@ function search(value) {
   for (let pod of _pods) {
     let title = pod.title.rendered.toLowerCase();
     let genre = pod.acf.genre.toLowerCase();
-    if (title.includes(searchQuery) || genre.includes(searchQuery)) {
+    let beskrivelse = pod.acf.beskrivelse.toLowerCase();
+    let host = pod.acf.host.toLowerCase();
+    if (title.includes(searchQuery) || genre.includes(searchQuery) || beskrivelse.includes(searchQuery) || host.includes(searchQuery))  {
       filteredPods.push(pod);
     }
 
