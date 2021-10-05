@@ -38,6 +38,7 @@ body {
 }
 
 
+
 header {
   background-image: url(../img/baggrund.jpg);
   background-size: cover;
@@ -200,12 +201,13 @@ nav {
   z-index: 9999;
 }
 
-
+/* Style the links inside the navigation bar */
 nav a {
   display: inline-block;
   text-align: center;
   padding: 0.5em 2.5em 0.3em;
 }
+
 
 
 /* ======================================= page styling ======================================= */
@@ -579,6 +581,26 @@ form {
   margin: auto;
 }
 
+/* ---------- loader styling ---------- */
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.4s, opacity 0.4s linear;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+
+#search-container.hide {
+  padding: 0;
+}
+
+.hide > * {
+  display: none;
+}
 
 
 
