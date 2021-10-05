@@ -8,15 +8,12 @@ console.log("router.js is running!");
 const routes = {
     "#/": "home",
     "#/searchPage": "searchPage",
-    "#/favorites": "favorites",
     "#/loginorcreate": "loginorcreate",
     "#/login": "login",
     "#/create": "create",
     "#/choose-interests": "choose-interests",
     "#/choose-streaming": "choose-streaming",
     "#/recommended": "recommended",
-    "#/profile": "profile",
-    "#/edit-profile": "edit-profile",
     "#/detail": "detail",
 };
 

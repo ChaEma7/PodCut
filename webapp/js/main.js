@@ -423,7 +423,9 @@ function search2(value) {
   for (let pod of _pods) {
     let title = pod.title.rendered.toLowerCase();
     let genre = pod.acf.genre.toLowerCase();
-    if (title.includes(searchQuery) || genre.includes(searchQuery)) {
+    let beskrivelse = pod.acf.beskrivelse.toLowerCase();
+    let host = pod.acf.host.toLowerCase();
+    if (title.includes(searchQuery) || genre.includes(searchQuery) || beskrivelse.includes(searchQuery) || host.includes(searchQuery))  {
       filteredPods.push(pod);
     }
 
